@@ -6,21 +6,18 @@ on:
       - main 
       # Defining at worklflow level
 env: 
-  DATABASE_CONNECTION_STRING: postgresql://user:password@localhost:5432/dbname
-  # DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE }}
-
+  DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE_CONNECTION_STRING }}
 jobs:
   test:
   # Defining at job level
     env:
-      DATABASE_NAME: customer_db
+      DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Logging
         run: echo "Database Name - ${{ env.DATABASE_NAME }}"
-          # echo Database Name: ${{ env.DATABASE_NAME }}
 
   deploy:
     runs-on: ubuntu-latest
