@@ -31,6 +31,6 @@ jobs:
       - name: Logging
          # Because is it available at workflow level
         # run: echo "Database Connection String - ${{ env.DATABASE_CONNECTION_STRING }}"
-        run: echo "Database Connection String - ${{ vars.NAME }}"
+        run: echo "Database Connection String - ${{ env.NAME }}"
      
         
