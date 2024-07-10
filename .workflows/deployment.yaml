@@ -1,0 +1,33 @@
+name: Deploy Python App
+
+on:
+  push:
+    branches:
+      - main 
+      # Defining at worklflow level
+env: 
+  DATABASE_CONNECTION_STRING: postgresql://user:password@localhost:5432/dbname
+  # DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE }}
+
+jobs:
+  test:
+  # Defining at job level
+    env:
+      DATABASE_NAME: customer_db
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Logging
+        run:   
+        echo "Database Name: ${{ env.DATABASE_NAME }}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Logging
+        run:   
+        # Because is it available at workflow level
+        echo "Database Connection String: ${{ env.DATABASE_CONNECTION_STRING }}"
