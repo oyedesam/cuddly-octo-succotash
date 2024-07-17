@@ -1,0 +1,33 @@
+name: Environment Setup
+
+on:
+  push:
+    branches:
+      - main
+
+      ## Defining an ENV on the worofklow level, This would be available to all jobs and steps
+env: 
+    PYTHON_VERSION: 3.9
+    ENVIRONMENT_LEVEL: WORKFLOW
+jobs:
+    setup:
+        # Defining ENV at the job level, This would be available to all steps in the job
+        env:
+            PYTHON_VERSION: 3.8
+            ENVIRONMENT_LEVEL: JOB
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+           # Defining ENV at the step level, This would be available to only this step
+         # env:
+            # PYTHON_VERSION: 3.7
+            # ENVIRONMENT_LEVEL: STEP
+
+        - name: Logging
+          run:  |
+           echo "Python version is ${{ env.PYTHON_VERSION }}"
+           echo "Environment Level is ${{ env.ENVIRONMENT_LEVEL }}"
+
+
+    
