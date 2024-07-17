@@ -29,5 +29,15 @@ jobs:
            echo "Python version is ${{ env.PYTHON_VERSION }}"
            echo "Environment Level is ${{ env.ENVIRONMENT_LEVEL }}"
 
+    configure:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Logging
+          run:  |
+           echo "Python version is ${{ env.PYTHON_VERSION }}"
+           echo "Environment Level is ${{ env.ENVIRONMENT_LEVEL }}"
+
 
     
