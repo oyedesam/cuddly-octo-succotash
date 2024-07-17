@@ -39,5 +39,20 @@ jobs:
            echo "Python version is ${{ env.PYTHON_VERSION }}"
            echo "Environment Level is ${{ env.ENVIRONMENT_LEVEL }}"
 
+    configure_environemt_secrets:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Logging
+          run:  echo "Environment Secret version is ${{ secrets.DEV_ENVIRONMENT_VERSION }}"
 
+    configure_repository_secrets:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Logging
+          run:  echo "Repository Secret version is ${{ secrets.REPOSITORY_VERSION }}"
+    
     
