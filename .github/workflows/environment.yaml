@@ -39,7 +39,8 @@ jobs:
            echo "Python version is ${{ env.PYTHON_VERSION }}"
            echo "Environment Level is ${{ env.ENVIRONMENT_LEVEL }}"
 
-    configure_environemt_secrets:
+    configure_environment_secrets:
+        environment: DEV
         runs-on: ubuntu-latest
         steps:
         - name: Checkout code
@@ -54,15 +55,7 @@ jobs:
           uses: actions/checkout@v2
         - name: Logging
           run:  echo "Repository Secret version is ${{ secrets.REPOSITORY_VERSION }}"
-
-
-    Log_secrets:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-        - name: Logging
-          run: |
-              echo "Repository Secret version is ${{ secrets }}"
-              echo "Repository Secret version is ${{ env }}"
     
+
+              # Env is used for declaring environment variables that are used in the workflow
+              # Environments are used to set Environment.
