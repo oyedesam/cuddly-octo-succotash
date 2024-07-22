@@ -1,0 +1,24 @@
+name: Execution Flow
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+    Logger-1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+        - name: Logging 1
+          run:  |
+           echo "Python version is bad"
+           echo "Environment Level is bad"
+
+        - name: Logging 2
+          run: echo "${{ steps }}"
+            
+ 
+
