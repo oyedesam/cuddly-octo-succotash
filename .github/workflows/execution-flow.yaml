@@ -18,11 +18,19 @@ jobs:
            echo "Python version is bad status=failure"
            echo "Environment Level is bad, ${{ steps.logging1.outputs.status }}"
 
+        - name: Logging 2
+          if: ${{ steps.logging1.outputs.status == 'success' }}
+          run:  |
+            echo "Python version is bad"
+            echo "Environment Level is bad"
+
+
         # - name: Logging 2
         #   if: ${{ steps.logging1.outcome == 'success' }}
         #   run:  |
-        #     echo "Python version is bad"
-        #     echo "Environment Level is bad"
+        #       echo "Python version is bad"
+        #       echo "Environment Level is bad"
+              
             
  
 
