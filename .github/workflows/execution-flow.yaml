@@ -10,7 +10,7 @@ jobs:
     Logger-1:
         runs-on: ubuntu-latest
         outputs:
-          status: ${{ steps.logging1.outputs.outcome }}
+          status: ${{ steps.logging1.outputs.status }}
         steps:
         - name: Checkout code
           uses: actions/checkout@v2
@@ -34,7 +34,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Output Information
-            run: echo "The outcome of the previous job is ${{ needs.Logger-1.outputs.status }}"
+            run: echo "The status of the previous job is ${{ needs.Logger-1.outputs.status }}"
 
 
 
