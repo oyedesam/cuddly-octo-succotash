@@ -29,12 +29,12 @@ jobs:
 
     Report-Status:
       # Returns true when any previous step of a job fails
-        # if: failure()
+        if: failure()
         needs: Logger-1
         runs-on: ubuntu-latest
         steps:
           - name: Output Information
-            run: echo "The status of the previous job is ${{ toJson(needs) }}"
+            run: echo "The status of the previous job is ${{ toJson(needs.Logger-1.result) }}"
 
 
 
