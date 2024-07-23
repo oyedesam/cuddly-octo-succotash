@@ -29,7 +29,7 @@ jobs:
 
     Report-Status:
       # Returns true when any previous step of a job fails
-        if: failure()
+        # if: failure()
         needs: Logger-1
         runs-on: ubuntu-latest
         steps:
