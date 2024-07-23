@@ -20,7 +20,7 @@ jobs:
            echo "Learning Python can be very easy"
            echo "C++ on the onther hand is a bit hard"
            exit 1
-
+          # Exit 1 fail on purpose
         - name: Logging 2
           if: ${{ steps.logging1.outputs.status == 'success' }}
           run:  |
@@ -34,7 +34,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Output Information
-            run: echo "The status of the previous job is ${{ toJson(github) }}"
+            run: echo "The status of the previous job is ${{ toJson(needs) }}"
 
 
 
