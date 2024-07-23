@@ -10,7 +10,7 @@ jobs:
     Logger-1:
         runs-on: ubuntu-latest
         outputs:
-          status: ${{ steps.logging1.outputs.status }}
+          status: ${{ steps.logging1.outputs }}
         steps:
         - name: Checkout code
           uses: actions/checkout@v2
