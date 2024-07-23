@@ -9,14 +9,17 @@ on:
 jobs:
     Logger-1:
         runs-on: ubuntu-latest
+        outputs:
+          status: ${{ steps.logging1.outputs.outcome }}
         steps:
         - name: Checkout code
           uses: actions/checkout@v2
         - name: Logging 1
           id: logging1
           run:  |
-           echo "Python version is bad status=failure"
-           echo "Environment Level is bad, ${{ steps.logging1.outputs.status }}"
+           echo "Learning Python can be very easy"
+           echo "C++ on the onther hand is a bit hard"
+           exit 1
 
         - name: Logging 2
           if: ${{ steps.logging1.outputs.status == 'success' }}
@@ -24,13 +27,30 @@ jobs:
             echo "Python version is bad"
             echo "Environment Level is bad"
 
+    Report-Status:
+      # Returns true when any previous step of a job fails
+        if: failure()
+        needs: Logger-1
+        runs-on: ubuntu-latest
+        steps:
+          - name: Output Information
+            run: echo "The outcome of the previous job is ${{ needs.Logger-1.outputs.status }}"
+
+
+
 
         # - name: Logging 2
         #   if: ${{ steps.logging1.outcome == 'success' }}
         #   run:  |
         #       echo "Python version is bad"
         #       echo "Environment Level is bad"
-              
+        
+        
+        # - name: Logging 1
+        # id: logging1
+        # run:  |
+        #  echo "Python version is bad status=failure"
+        #  echo "Environment Level is bad, ${{ steps.logging1.outputs.status }}"
             
  
 
