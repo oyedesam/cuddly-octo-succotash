@@ -34,7 +34,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Output Information
-            run: echo "The status of the previous job is ${{ needs.Logger-1.outputs.status }}"
+            run: echo "The status of the previous job is ${{ toJson(github) }}"
 
 
 
