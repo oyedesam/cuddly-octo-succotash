@@ -16,7 +16,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                python-versions: ["3.13.0", "3.10"]
+                python-versions: ["3.9", "3.10"]
         steps:
         - name: Get Code
           uses: actions/checkout@v3
