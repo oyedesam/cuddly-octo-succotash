@@ -9,6 +9,8 @@ on:
 jobs:
     ReportA:
         runs-on: ubuntu-latest
+        # Would continue execution even if the job fails very simmilary to if: failure()
+        continue-on-error: true
         steps:
         - name: Run a script
           run: |
@@ -40,6 +42,7 @@ jobs:
             echo "Hello world, This is report D"
 
     ReportE:
+        continue-on-error: true
         runs-on: ubuntu-latest
         steps:
         - name: Run a script
