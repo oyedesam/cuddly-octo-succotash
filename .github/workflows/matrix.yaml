@@ -1,0 +1,26 @@
+# Matrix in GitHub actions gives the capability of A single job running multiple times based on different variables, 
+# variables can be different operation systems, different runtime versions. 
+name: Matrix
+
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+    # The build job would run multiple times to setup different python versions on the runner
+    # The jobs wwould also run in parallel and not sequentially
+    Build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                python-versions: [3.10, 3.9, 'graalpy-22.3']
+        steps:
+        - name: Get Code
+          uses: actions/checkout@v3
+        - name: Install Python on runner 
+          uses: actions/setup-python@v5
+          with:
+            python-version: ${{ matrix.python-versions }}
+  
