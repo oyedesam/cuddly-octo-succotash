@@ -12,7 +12,7 @@ jobs:
     # The build job would run multiple times to setup different python versions on the runner
     # The jobs wwould also run in parallel and not sequentially
     Build:
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-20.04
         strategy:
             matrix:
                 python-versions: [3.13.0, 3.12.0]
