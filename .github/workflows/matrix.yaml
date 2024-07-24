@@ -18,6 +18,12 @@ jobs:
             matrix:
                 python-versions: ["3.9", "3.10", "3.8"]
                 operating-systems: [ubuntu-latest, windows-latest, macos-latest]
+                # Exclude the python version 3.10 on macos-latest from the matrix. 
+                # There is an include keyword that can be used to include specific versions
+                # But I rather define the OS and versions traditionally instead of using Include
+                exclude:
+                    - python-versions: "3.10"
+                      operating-systems: "macos-latest"
         steps:
         - name: Get Code
           uses: actions/checkout@v3
