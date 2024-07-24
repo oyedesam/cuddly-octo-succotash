@@ -1,0 +1,42 @@
+name: Execution Flow Continuation
+
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+    ReportA:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Run a script
+          run: |
+            echo "Hello world, This is report A"
+            exit 1
+
+    ReportB:
+        runs-on: ubuntu-latest
+    
+        steps:
+        - name: Run a script
+          run: |
+            echo "Hello world, This is report B"
+
+
+    ReportC:
+        runs-on: ubuntu-latest
+    
+        steps:
+        - name: Run a script
+          run: |
+            echo "Hello world, This is report C"
+
+    ReportD:
+        runs-on: ubuntu-latest
+    
+        steps:
+        - name: Run a script
+          run: |
+            echo "Hello world, This is report D"
+
