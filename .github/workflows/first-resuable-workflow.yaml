@@ -1,0 +1,11 @@
+name: First Resuable Workflow
+
+# Workflow call is used to call this workflow from another workflow
+on: workflow_call
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Output the current date and time
+          run: echo "The current date and time is $(date)"
