@@ -4,7 +4,7 @@ name: First Resuable Workflow
 on: workflow_call
 
 jobs:
-  build:
+  LogTime:
     runs-on: ubuntu-latest
     steps:
         - name: Output the current date and time
