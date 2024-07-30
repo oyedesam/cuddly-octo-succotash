@@ -1,0 +1,19 @@
+name: Deploy Container
+
+on:
+    push:
+      branches:
+        - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        container:
+            image: python
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Logging
+          run:  echo "Deploying container"
+        - name: Deploy container
+          run: echo "Deploying container to server"
